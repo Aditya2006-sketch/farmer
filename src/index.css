@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  @apply bg-kisan-25 text-ink-800 font-sans;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #C3E2C6 transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #C3E2C6;
+  border-radius: 999px;
+}
+
+:focus-visible {
+  outline: 2px solid #3F934A;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes dash-fill {
+  from { stroke-dashoffset: var(--dash-start); }
+  to { stroke-dashoffset: var(--dash-end); }
+}
+
+.animate-dash {
+  animation: dash-fill 900ms ease-out forwards;
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.94) translateY(6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-pop {
+  animation: pop-in 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
